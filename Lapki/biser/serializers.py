@@ -55,6 +55,8 @@ class OrderGetSerializer(serializers.ModelSerializer):
 
 
 class OrderPostSerializer(serializers.ModelSerializer):
+    jewelry = serializers.PrimaryKeyRelatedField(queryset=Jewelry.objects.all())
+
     class Meta:
         model = Order
         fields = ('name', 'description',
