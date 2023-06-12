@@ -21,7 +21,7 @@ class JewelryGetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Jewelry
-        fields = ('pk', 'name', 'description', 'price', 'cat', 'icon')
+        fields = ('pk', 'name', 'description', 'second_name', 'price', 'cat', 'icon')
 
     def get_cat(self, obj):
         return DATA_CATEGORY[obj.category]
@@ -55,7 +55,10 @@ class OrderGetSerializer(serializers.ModelSerializer):
 
 
 class OrderPostSerializer(serializers.ModelSerializer):
-    jewelry = serializers.PrimaryKeyRelatedField(queryset=Jewelry.objects.all())
+    jewelry = serializers.PrimaryKeyRelatedField(
+        queryset=Jewelry.objects.all(),
+        many=True,
+    )
 
     class Meta:
         model = Order
