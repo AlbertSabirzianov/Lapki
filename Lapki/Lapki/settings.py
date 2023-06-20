@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
     'rest_framework.authtoken',
-    'biser',
+    'biser.apps.BiserConfig',
 ]
 
 MIDDLEWARE = [

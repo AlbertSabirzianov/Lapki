@@ -57,8 +57,4 @@ class OrderViewSet(ModelViewSet):
             recipient_list=['natavalizer@gmail.com'],
             fail_silently=False
         )
-        
-    # Дописать функционал отправки письма Мастеру
-
-
 

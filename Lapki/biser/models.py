@@ -3,6 +3,7 @@ from django.db import models
 
 class Jewelry(models.Model):
     """Модель украшения."""
+
     name = models.CharField(
         max_length=100,
         verbose_name='Название',
@@ -36,7 +37,7 @@ class Jewelry(models.Model):
     )
     
     def __str__(self):
-        return self.name
+        return f'{self.name} ({self.second_name})'
 
     class Meta:
         ordering = ['-make_time']
@@ -46,6 +47,7 @@ class Jewelry(models.Model):
 
 class Picture(models.Model):
     """Класс картинок украшения."""
+
     picture = models.ImageField(
         upload_to='pictures',
         verbose_name='Картинка',
@@ -66,6 +68,7 @@ class Picture(models.Model):
 
 class Order(models.Model):
     """Модель заказа."""
+
     name = models.CharField(
         max_length=100,
         verbose_name='Имя заказчика',
@@ -90,6 +93,14 @@ class Order(models.Model):
     phone_number = models.CharField(
         max_length=17,
         verbose_name='Телефон',
+    )
+    is_finished = models.BooleanField(
+        default=False,
+        verbose_name='Закончен ли заказ'
+    )
+    summ = models.FloatField(
+        verbose_name='Сумма заказа',
+        default=0,
     )
     
     def __str__(self) -> str:
