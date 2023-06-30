@@ -45,7 +45,7 @@ class PictureSerializer(serializers.ModelSerializer):
 
 
 class OrderGetSerializer(serializers.ModelSerializer):
-    jewelry = JewelryGetSerializer(read_only=True)
+    jewelry = JewelryGetSerializer(read_only=True, many=True)
 
     class Meta:
         model = Order
