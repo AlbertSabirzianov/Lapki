@@ -2,13 +2,13 @@
 API for Biser store)
 
 ### AdminSite
-'lapkiback.ru/admin' 
+['https://lapkiback.ru/admin']('lapkiback.ru/admin') 
 
 ### List of Jewelry
-'lapkiback.ru/jewelry'
+['https://lapkiback.ru/jewelry']('lapkiback.ru/jewelry')
 
 ### List of pictures for jewelry
-'lapkiback.ru/jewelry/<id>/picture'
+['https://lapkiback.ru/jewelry/id/picture']('lapkiback.ru/jewelry/id/picture')
 
 ### List of Orders
-'lapkiback.ru/order'
+['https://lapkiback.ru/order']('lapkiback.ru/order')
