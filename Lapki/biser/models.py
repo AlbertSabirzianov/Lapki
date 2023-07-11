@@ -35,7 +35,7 @@ class Jewelry(models.Model):
         choices=Category.choices,
         verbose_name='Категория',
     )
-    
+
     def __str__(self):
         return f'{self.name} ({self.second_name})'
 
@@ -57,10 +57,10 @@ class Picture(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Украшение',
     )
-    
+
     def __str__(self) -> str:
         return 'Картинка от украшения ' + self.jewelry.name
-    
+
     class Meta:
         verbose_name = 'Картинка'
         verbose_name_plural = 'Картинки'
@@ -102,7 +102,7 @@ class Order(models.Model):
         verbose_name='Сумма заказа',
         default=0,
     )
-    
+
     def __str__(self) -> str:
         return 'Заказ ' + str(self.name) + ' ' + str(self.make_time)
 

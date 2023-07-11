@@ -27,7 +27,11 @@ from biser.views import JewelryViewSet, PictureViewSet, OrderViewSet
 router = SimpleRouter()
 
 router.register('jewelry', JewelryViewSet)
-router.register(r'jewelry/(?P<jewelry_id>.+?)/picture', PictureViewSet, basename='picture')
+router.register(
+    r'jewelry/(?P<jewelry_id>.+?)/picture',
+    PictureViewSet,
+    basename='picture'
+)
 router.register('order', OrderViewSet)
 
 urlpatterns = [
@@ -37,4 +41,7 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )

@@ -9,6 +9,7 @@ class JewelryAdmin(admin.ModelAdmin):
     Фильтрация по: категории
     Быстро изменить: цену
     """
+
     list_display = ('name', 'second_name', 'price', 'category')
     list_display_links = ('name',)
     search_fields = ('name', 'second_name')
@@ -23,6 +24,8 @@ class OrderAdmin(admin.ModelAdmin):
     Фильтрация: по выполненным
     Быстро изменить: выполнен
     """
+
+    filter_horizontal = ['jewelry']
     list_display = ('name', 'description', 'summ', 'is_finished')
     list_display_links = ('name',)
     search_fields = ('name', 'description')
@@ -31,6 +34,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 class PictureAdmin(admin.ModelAdmin):
+
     list_display = ('jewelry', 'picture')
     list_display_links = ('jewelry',)
     search_fields = ('jewelry__name',)

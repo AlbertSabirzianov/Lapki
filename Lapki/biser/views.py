@@ -7,8 +7,11 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.core.mail import send_mail
 
 from .models import Jewelry, Picture, Order
-from .serializers import JewelryGetSerializer, JewelryPostSerializer, PictureSerializer, OrderGetSerializer, \
+from .serializers import (
+    JewelryGetSerializer, JewelryPostSerializer,
+    PictureSerializer, OrderGetSerializer,
     OrderPostSerializer
+)
 from .permissions import IsAdminOrReadOnly
 from .utils import get_order_mail
 
@@ -57,4 +60,3 @@ class OrderViewSet(ModelViewSet):
             recipient_list=['natavalizer@gmail.com'],
             fail_silently=False
         )
-

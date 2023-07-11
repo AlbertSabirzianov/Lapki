@@ -19,4 +19,3 @@ def get_order_mail(serializer):
            f'Телефон: {phone} \n' \
            f'Коментарий к заказу: {comment}'
     return text
-
