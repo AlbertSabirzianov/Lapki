@@ -8,10 +8,9 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.authtoken.models import Token
 
 from biser.models import Jewelry, Order, Picture
-from Lapki.settings import BASE_DIR
 from .utils import IMAGE_64
 
-TEMPLATE_MEDIA_DIR = tempfile.mkdtemp(dir=BASE_DIR)
+TEMPLATE_MEDIA_DIR = tempfile.mkdtemp()
 GIF = (
     b'\x47\x3B'
 )
@@ -20,7 +19,7 @@ GIF = (
 User = get_user_model()
 
 
-@override_settings(MEDIA_DIR=TEMPLATE_MEDIA_DIR)
+@override_settings(MEDIA_ROOT=TEMPLATE_MEDIA_DIR)
 class SetUpTestCase(APITestCase):
     """Класс API тестов."""
 
@@ -140,5 +139,5 @@ class SetUpTestCase(APITestCase):
 
     @classmethod
     def tearDownClass(cls):
-        super().tearDownClass()
         shutil.rmtree(TEMPLATE_MEDIA_DIR, ignore_errors=True)
+        super().tearDownClass()
