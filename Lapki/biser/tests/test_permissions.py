@@ -51,7 +51,7 @@ class PermissionsTestCase(SetUpTestCase):
         )
 
     def test_post_picture_not_admin(self):
-        """Отправка картинки не зарегестрированным пользователем."""
+        """Отправка картинки не админом."""
 
         res = self.not_admin.post(
             '/jewelry/1/picture/',
