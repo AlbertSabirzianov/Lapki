@@ -13,7 +13,7 @@ from .serializers import (
     OrderPostSerializer
 )
 from .permissions import IsAdminOrReadOnly
-from .utils import get_order_mail
+from .services import get_text_mail
 
 
 class JewelryViewSet(ModelViewSet):
@@ -53,10 +53,13 @@ class OrderViewSet(ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save()
-        send_mail(
-            subject='Новый заказ!',
-            message=get_order_mail(serializer),
-            from_email='Albertuno@mail.ru',
-            recipient_list=['natavalizer@gmail.com'],
-            fail_silently=False
-        )
+        try:
+            send_mail(
+                subject='Новый заказ!',
+                message=get_text_mail(serializer),
+                from_email='Albertuno@mail.ru',
+                recipient_list=['natavalizer@gmail.com'],
+                fail_silently=False
+            )
+        except Exception:
+            pass

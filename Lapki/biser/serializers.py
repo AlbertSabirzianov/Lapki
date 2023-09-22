@@ -5,7 +5,7 @@ from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
 
 from .models import Jewelry, Picture, Order
-from .utils import DATA_CATEGORY
+from .services import DATA_CATEGORY
 
 
 class Base64ImageField(serializers.ImageField):
